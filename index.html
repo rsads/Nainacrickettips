@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="theme-color" content="#12051f">
+
+<meta name="description"
+content="Naina Cricket Tips - cricket analysis, player form, team updates and match information.">
+
+<title>Naina Cricket Tips™ | Cricket Analysis</title>
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    background:#090313;
+}
+
+body{
+    min-height:100svh;
+}
+
+
+/* ================= MAIN BACKGROUND ================= */
+
+.page{
+    width:100%;
+    height:100svh;
+    min-height:100svh;
+
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at 15% 15%,
+        rgba(255,0,153,.22),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 90% 85%,
+        rgba(0,220,255,.17),
+        transparent 32%
+    ),
+    linear-gradient(
+        145deg,
+        #090313,
+        #160625 48%,
+        #050914
+    );
+}
+
+
+/* ================= BACKGROUND GLOW ================= */
+
+.glow1,
+.glow2{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.glow1{
+    width:260px;
+    height:260px;
+    top:-130px;
+    left:-90px;
+
+    border:1px solid rgba(255,0,170,.25);
+
+    box-shadow:
+    0 0 90px rgba(255,0,170,.16);
+
+    animation:float1 7s ease-in-out infinite;
+}
+
+.glow2{
+    width:330px;
+    height:330px;
+    right:-180px;
+    bottom:-150px;
+
+    border:1px solid rgba(0,225,255,.2);
+
+    box-shadow:
+    0 0 100px rgba(0,225,255,.12);
+
+    animation:float2 9s ease-in-out infinite;
+}
+
+@keyframes float1{
+    0%,100%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(25px,20px);
+    }
+}
+
+@keyframes float2{
+    0%,100%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(-20px,-25px);
+    }
+}
+
+
+/* ================= MOVING CRICKET BALLS ================= */
+
+.balls{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.ball{
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle at 30% 28%,
+        #ff7777,
+        #d5144b 48%,
+        #61051f
+    );
+
+    box-shadow:
+    0 0 16px rgba(255,30,110,.45);
+
+    opacity:.65;
+}
+
+.ball:before{
+    content:"";
+
+    position:absolute;
+
+    width:70%;
+    height:70%;
+
+    left:15%;
+    top:15%;
+
+    border-top:
+    2px dashed rgba(255,255,255,.75);
+
+    border-bottom:
+    2px dashed rgba(255,255,255,.75);
+
+    border-radius:50%;
+
+    transform:rotate(45deg);
+}
+
+.ball:nth-child(1){
+    left:4%;
+    bottom:-30px;
+    animation:ballUp 12s linear infinite;
+}
+
+.ball:nth-child(2){
+    left:28%;
+    bottom:-40px;
+    width:14px;
+    height:14px;
+    animation:ballUp 16s linear infinite 3s;
+}
+
+.ball:nth-child(3){
+    left:52%;
+    bottom:-30px;
+    width:18px;
+    height:18px;
+    animation:ballUp 14s linear infinite 5s;
+}
+
+.ball:nth-child(4){
+    left:76%;
+    bottom:-40px;
+    width:12px;
+    height:12px;
+    animation:ballUp 18s linear infinite 1s;
+}
+
+.ball:nth-child(5){
+    left:93%;
+    bottom:-30px;
+    width:16px;
+    height:16px;
+    animation:ballUp 13s linear infinite 6s;
+}
+
+@keyframes ballUp{
+
+    0%{
+        transform:
+        translateY(0)
+        translateX(0)
+        rotate(0deg);
+        opacity:0;
+    }
+
+    12%{
+        opacity:.6;
+    }
+
+    50%{
+        transform:
+        translateY(-55vh)
+        translateX(80px)
+        rotate(720deg);
+    }
+
+    100%{
+        transform:
+        translateY(-120vh)
+        translateX(-70px)
+        rotate(1440deg);
+        opacity:0;
+    }
+}
+
+
+/* ================= CONTAINER ================= */
+
+.wrapper{
+    width:min(93%,500px);
+    height:calc(100svh - 10px);
+
+    position:relative;
+    z-index:5;
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+    width:100%;
+    height:100%;
+
+    position:relative;
+    overflow:hidden;
+
+    padding:
+    clamp(16px,4vw,25px);
+
+    border-radius:42px;
+
+    border:
+    2px solid rgba(226,68,190,.38);
+
+    background:
+    linear-gradient(
+        150deg,
+        rgba(30,11,48,.97),
+        rgba(13,10,30,.97)
+    );
+
+    box-shadow:
+    0 30px 100px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+
+/* ================= TOP ================= */
+
+.top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.badge{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    padding:9px 13px;
+
+    border-radius:999px;
+
+    color:#ffd8f5;
+
+    background:
+    rgba(244,42,170,.08);
+
+    border:
+    1px solid rgba(244,72,188,.25);
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:.9px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#ff3db7;
+
+    box-shadow:
+    0 0 15px #ff3db7;
+
+    animation:dotPulse 1.5s infinite;
+}
+
+@keyframes dotPulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(.65);
+        opacity:.45;
+    }
+}
+
+
+/* ================= LOGO ================= */
+
+.logo{
+    width:58px;
+    height:58px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:
+    2px solid #ff4fc2;
+
+    box-shadow:
+    0 0 25px rgba(255,55,190,.3);
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+
+    padding:
+    clamp(10px,2.5vh,20px)
+    3px 0;
+}
+
+.kicker{
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:2.4px;
+
+    color:#4fe9ff;
+
+    margin-bottom:7px;
+}
+
+h1{
+    font-size:
+    clamp(29px,9vw,44px);
+
+    line-height:.95;
+
+    letter-spacing:-1.6px;
+
+    font-weight:950;
+}
+
+h1 span{
+    display:block;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff3fb5,
+        #ff77cf,
+        #4ddfff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.subtitle{
+    max-width:420px;
+
+    margin:
+    9px auto 0;
+
+    color:#aaa8bb;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+
+/* ================= TAGS ================= */
+
+.tags{
+    display:flex;
+
+    justify-content:center;
+
+    gap:6px;
+
+    margin-top:12px;
+}
+
+.tag{
+    padding:7px 9px;
+
+    border-radius:999px;
+
+    color:#e8dfff;
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    font-size:7px;
+
+    font-weight:900;
+}
+
+
+/* ================= INFO GRID ================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:7px;
+
+    margin-top:10px;
+}
+
+.box{
+    padding:9px;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(65,31,82,.55),
+        rgba(18,13,35,.7)
+    );
+
+    border:
+    1px solid rgba(202,92,220,.14);
+}
+
+.number{
+    font-size:17px;
+
+    font-weight:950;
+
+    color:#ff54bd;
+}
+
+.box-title{
+    margin-top:2px;
+
+    font-size:9px;
+
+    font-weight:900;
+}
+
+.box-text{
+    margin-top:3px;
+
+    color:#878495;
+
+    font-size:7px;
+
+    line-height:1.35;
+}
+
+
+/* ================= ANALYSIS PANEL ================= */
+
+.panel{
+    margin-top:9px;
+
+    padding:9px 11px;
+
+    border-radius:17px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+}
+
+.panel-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    margin-bottom:5px;
+}
+
+.panel-icon{
+    width:19px;
+    height:19px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:6px;
+
+    background:
+    rgba(71,220,255,.1);
+
+    color:#4fe4ff;
+}
+
+.row{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:3.5px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.055);
+
+    color:#c9c5d4;
+
+    font-size:7.5px;
+}
+
+.row:last-child{
+    border-bottom:0;
+}
+
+.check{
+    width:15px;
+    height:15px;
+
+    flex:none;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:5px;
+
+    color:#4fe4ff;
+
+    background:
+    rgba(60,220,255,.08);
+}
+
+
+/* ================= BIG CTA ================= */
+
+.cta{
+
+    width:100%;
+
+    min-height:73px;
+
+    margin-top:11px;
+
+    padding:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        105deg,
+        #ff167f,
+        #d52aff,
+        #7655ff,
+        #00c9ff,
+        #ff167f
+    );
+
+    background-size:300% 100%;
+
+    border:
+    2px solid rgba(255,255,255,.22);
+
+    box-shadow:
+    0 14px 40px rgba(211,27,178,.35),
+    0 0 30px rgba(81,92,255,.18);
+
+    animation:
+    gradientMove 4s ease infinite,
+    ctaPulse 2.2s ease-in-out infinite;
+}
+
+.cta:before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+    top:0;
+
+    width:70%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transform:skewX(-22deg);
+
+    animation:
+    shine 2.7s infinite;
+}
+
+.cta-content{
+
+    position:relative;
+
+    z-index:3;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:11px;
+}
+
+.telegram{
+    width:38px;
+    height:38px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#5c62ff;
+
+    font-size:21px;
+
+    box-shadow:
+    0 5px 14px rgba(0,0,0,.22);
+}
+
+.cta-title{
+    font-size:
+    clamp(15px,4.5vw,19px);
+
+    font-weight:950;
+
+    letter-spacing:.4px;
+}
+
+.cta-sub{
+    display:block;
+
+    margin-top:3px;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    opacity:.72;
+}
+
+@keyframes gradientMove{
+
+    0%,100%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+}
+
+@keyframes ctaPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.025);
+    }
+}
+
+@keyframes shine{
+
+    0%{
+        left:-120%;
+    }
+
+    45%,100%{
+        left:140%;
+    }
+}
+
+
+/* ================= FOOTER ================= */
+
+.disclaimer{
+    margin:
+    6px 5px 0;
+
+    text-align:center;
+
+    color:#626072;
+
+    font-size:6.5px;
+
+    line-height:1.35;
+}
+
+.footer{
+    margin-top:4px;
+
+    text-align:center;
+
+    color:#4d485c;
+
+    font-size:6.5px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:390px){
+
+    .wrapper{
+        width:95%;
+        height:calc(100svh - 8px);
+    }
+
+    .card{
+        padding:11px;
+        border-radius:34px;
+    }
+
+    .logo{
+        width:48px;
+        height:48px;
+        border-radius:15px;
+    }
+
+    .badge{
+        padding:8px 10px;
+        font-size:7px;
+    }
+
+    .hero{
+        padding-top:8px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .subtitle{
+        font-size:9px;
+        margin-top:7px;
+    }
+
+    .tags{
+        margin-top:8px;
+    }
+
+    .tag{
+        padding:6px 7px;
+        font-size:6.5px;
+    }
+
+    .grid{
+        margin-top:7px;
+    }
+
+    .box{
+        padding:8px;
+    }
+
+    .panel{
+        margin-top:7px;
+        padding:7px 9px;
+    }
+
+    .row{
+        padding:3px 0;
+    }
+
+    .cta{
+        min-height:65px;
+        margin-top:8px;
+    }
+
+    .telegram{
+        width:33px;
+        height:33px;
+        font-size:18px;
+    }
+
+    .cta-title{
+        font-size:15px;
+    }
+
+    .benefits{
+        margin-top:8px;
+    }
+
+    .disclaimer{
+        font-size:6px;
+    }
+}
+
+
+/* ================= SHORT SCREEN ================= */
+
+@media(max-height:680px){
+
+    .hero{
+        padding-top:6px;
+    }
+
+    .tags{
+        margin-top:6px;
+    }
+
+    .grid{
+        margin-top:6px;
+    }
+
+    .panel{
+        margin-top:6px;
+        padding:6px 9px;
+    }
+
+    .row{
+        padding:2.5px 0;
+    }
+
+    .cta{
+        margin-top:6px;
+        min-height:58px;
+    }
+
+    .disclaimer{
+        margin-top:4px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+<!-- BACKGROUND -->
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+
+<!-- MOVING BALLS -->
+
+<div class="balls">
+
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="wrapper">
+
+<main class="card">
+
+
+<!-- TOP -->
+
+<div class="top">
+
+    <div class="badge">
+        <span class="dot"></span>
+        CRICKET ANALYSIS HUB
+    </div>
+
+    <img
+        src="./logo.jpg"
+        class="logo"
+        alt="Naina Cricket Tips">
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="kicker">
+        SMART • EXPERT • INFORMATIVE
+    </div>
+
+    <h1>
+        NAINA
+        <span>CRICKET TIPS 🏆</span>
+    </h1>
+
+    <p class="subtitle">
+        Match previews, player form, team updates,
+        key statistics and useful cricket information
+        presented in a simple format.
+    </p>
+
+</section>
+
+
+<!-- TAGS -->
+
+<div class="tags">
+
+    <div class="tag">
+        🏏 MATCH PREVIEW
+    </div>
+
+    <div class="tag">
+        📊 PLAYER STATS
+    </div>
+
+    <div class="tag">
+        ⚡ MATCH UPDATES
+    </div>
+
+</div>
+
+
+<!-- INFO GRID -->
+
+<div class="grid">
+
+
+    <div class="box">
+
+        <div class="number">
+            01
+        </div>
+
+        <div class="box-title">
+            Match Analysis
+        </div>
+
+        <div class="box-text">
+            Important match factors,
+            conditions and team information.
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <div class="number">
+            02
+        </div>
+
+        <div class="box-title">
+            Team Updates
+        </div>
+
+        <div class="box-text">
+            Squads, combinations and
+            relevant team news.
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <div class="number">
+            03
+        </div>
+
+        <div class="box-title">
+            Player Form
+        </div>
+
+        <div class="box-text">
+            Recent performances and
+            useful player statistics.
+        </div>
+
+    </div>
+
+
+    <div class="box">
+
+        <div class="number">
+            04
+        </div>
+
+        <div class="box-title">
+            Cricket Updates
+        </div>
+
+        <div class="box-text">
+            Match-related information
+            and analysis updates.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PANEL -->
+
+<div class="panel">
+
+    <div class="panel-title">
+
+        <div class="panel-icon">
+            ✓
+        </div>
+
+        WHAT YOU CAN EXPECT
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="check">
+            ✓
+        </div>
+
+        Team & player information
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="check">
+            ✓
+        </div>
+
+        Recent form and key statistics
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="check">
+            ✓
+        </div>
+
+        Match analysis and updates
+
+    </div>
+
+</div>
+
+
+<!-- BIG ANIMATED CTA -->
+
+<a
+    href="https://t.me/+x3JLKnJJRAhiOTBl"
+    class="cta"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    <div class="cta-content">
+
+        <div class="telegram">
+            ➤
+        </div>
+
+        <div>
+
+            <div class="cta-title">
+                JOIN NAINA CRICKET TIPS
+            </div>
+
+            <small class="cta-sub">
+                OPEN TELEGRAM • CRICKET UPDATES
+            </small>
+
+        </div>
+
+    </div>
+
+</a>
+
+
+<!-- FOOTER -->
+
+<p class="disclaimer">
+    For general informational and entertainment purposes only.
+    Match information may change. Verify important details
+    through official cricket sources.
+</p>
+
+<div class="footer">
+    © 2026 NAINA CRICKET TIPS™
+</div>
+
+
+</main>
+
+</div>
+
+</div>
+
+</body>
+</html>
